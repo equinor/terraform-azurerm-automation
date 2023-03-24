@@ -17,29 +17,14 @@ resource "azurerm_automation_account" "this" {
   }
 }
 
-resource "azurerm_automation_schedule" "this" {
-  for_each = var.schedules
-
-  name                    = each.value["name"]
-  automation_account_name = azurerm_automation_account.this.name
-  resource_group_name     = azurerm_automation_account.this.resource_group_name
-  description             = each.value["description"]
-  frequency               = each.value["frequency"]
-  interval                = each.value["interval"]
-  start_time              = each.value["start_time"]
-  timezone                = each.value["timezone"]
-  week_days               = each.value["week_days"]
-  month_days              = each.value["month_days"]
-}
-
 resource "azurerm_automation_runbook" "this" {
-  for_each = var.runbooks
+  for_each = var.job_schedules
 
-  name                    = each.value["name"]
+  name                    = each.value["runbook_name"]
   automation_account_name = azurerm_automation_account.this.name
   resource_group_name     = azurerm_automation_account.this.resource_group_name
   location                = azurerm_automation_account.this.location
-  description             = each.value["description"]
+  description             = each.value["runbook_description"]
   runbook_type            = each.value["runbook_type"]
   content                 = each.value["content"]
   log_verbose             = each.value["log_verbose"]
@@ -48,13 +33,28 @@ resource "azurerm_automation_runbook" "this" {
   tags = var.tags
 }
 
+resource "azurerm_automation_schedule" "this" {
+  for_each = var.job_schedules
+
+  name                    = each.value["schedule_name"]
+  automation_account_name = azurerm_automation_account.this.name
+  resource_group_name     = azurerm_automation_account.this.resource_group_name
+  description             = each.value["schedule_description"]
+  frequency               = each.value["frequency"]
+  interval                = each.value["interval"]
+  start_time              = each.value["start_time"]
+  timezone                = each.value["timezone"]
+  week_days               = each.value["week_days"]
+  month_days              = each.value["month_days"]
+}
+
 resource "azurerm_automation_job_schedule" "this" {
   for_each = var.job_schedules
 
   automation_account_name = azurerm_automation_account.this.name
   resource_group_name     = azurerm_automation_account.this.resource_group_name
-  runbook_name            = each.value["runbook_name"]
-  schedule_name           = each.value["schedule_name"]
+  runbook_name            = azurerm_automation_runbook.this[each.key].name
+  schedule_name           = azurerm_automation_schedule.this[each.key].name
 
   # The parameter keys/names must strictly be in lowercase, even if this is not the case in the runbook.
   # This is due to a limitation in Azure Automation where the parameter names are normalized.

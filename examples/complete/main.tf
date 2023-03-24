@@ -32,30 +32,12 @@ module "automation" {
   location                   = azurerm_resource_group.example.location
   log_analytics_workspace_id = module.log_analytics.workspace_id
 
-  schedules = {
-    "example" = {
-      name       = "daily-schedule"
-      frequency  = "Day"
-      start_time = "" # todo
-      timezone   = "Etc/UTC"
-    }
-  }
-
-  runbooks = {
-    "example" = {
-      name         = "example-runbook"
-      description  = "An example runbook"
-      runbook_type = "PowerShell"
-      content      = data.local_file.example.content
-      log_verbose  = false
-      log_progress = false
-    }
-  }
-
   job_schedules = {
     "example" = {
-      schedule_name = "daily-schedule"
       runbook_name  = "example-runbook"
+      schedule_name = "daily-schedule"
+      content       = data.local_file.example.content
+      frequency     = "Day"
 
       parameters = {
         "Name" = "John Smith"

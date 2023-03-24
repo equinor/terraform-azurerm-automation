@@ -47,45 +47,30 @@ variable "identity" {
   default = null
 }
 
-variable "schedules" {
-  description = "A list of schedules to create for this Automation account."
-
-  type = map(object({
-    name        = string
-    description = optional(string, "")
-    frequency   = string
-    interval    = optional(string)
-    start_time  = optional(string)
-    timezone    = optional(string, "Etc/UTC")
-    week_days   = optional(list(string), null)
-    month_days  = optional(list(number), null)
-  }))
-
-  default = {}
-}
-
-variable "runbooks" {
+variable "job_schedules" {
   description = "A list of runbooks to create for this Automation account."
 
   type = map(object({
-    name         = string
-    description  = optional(string, "")
-    runbook_type = optional(string, "PowerShell")
-    content      = string
-    log_verbose  = optional(bool, false)
-    log_progress = optional(bool, false)
-  }))
+    # Runbook values
+    runbook_name        = string
+    runbook_description = optional(string, "")
+    runbook_type        = optional(string, "PowerShell")
+    content             = string
+    log_verbose         = optional(bool, false)
+    log_progress        = optional(bool, false)
 
-  default = {}
-}
+    # Schedule values
+    schedule_name        = string
+    schedule_description = optional(string, "")
+    frequency            = string
+    interval             = optional(string)
+    start_time           = optional(string)
+    timezone             = optional(string, "Etc/UTC")
+    week_days            = optional(list(string), null)
+    month_days           = optional(list(number), null)
 
-variable "job_schedules" {
-  description = "A list of scheduled jobs to create for this Automation account."
-
-  type = map(object({
-    runbook_name  = string
-    schedule_name = string
-    parameters    = optional(map(string), {})
+    # Job schedule values
+    parameters = optional(map(string), {})
   }))
 
   default = {}
