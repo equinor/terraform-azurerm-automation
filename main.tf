@@ -18,7 +18,7 @@ resource "azurerm_automation_account" "this" {
 }
 
 resource "azurerm_automation_runbook" "this" {
-  for_each = var.job_schedules
+  for_each = var.runbooks
 
   name                    = each.value["name"]
   automation_account_name = azurerm_automation_account.this.name
@@ -40,7 +40,7 @@ resource "time_offset" "this" {
 }
 
 resource "azurerm_automation_schedule" "this" {
-  for_each = var.job_schedules
+  for_each = var.runbooks
 
   name                    = each.value["schedule_name"]
   automation_account_name = azurerm_automation_account.this.name
@@ -59,7 +59,7 @@ resource "azurerm_automation_schedule" "this" {
 }
 
 resource "azurerm_automation_job_schedule" "this" {
-  for_each = var.job_schedules
+  for_each = var.runbooks
 
   automation_account_name = azurerm_automation_account.this.name
   resource_group_name     = azurerm_automation_account.this.resource_group_name
