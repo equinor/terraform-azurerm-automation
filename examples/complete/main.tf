@@ -32,22 +32,5 @@ module "automation" {
   location                   = azurerm_resource_group.example.location
   log_analytics_workspace_id = module.log_analytics.workspace_id
 
-  runbooks = {
-    "example" = {
-      name                 = "example-runbook"
-      description          = "An example runbook which writes a given name to output."
-      runbook_type         = "PowerShell"
-      content              = data.local_file.example.content
-      log_verbose          = false
-      log_progress         = false
-      schedule_name        = "daily-schedule"
-      schedule_description = "A schedule which triggers the example runbook once per day."
-      schedule_frequency   = "Day"
-      schedule_interval    = 1
-
-      parameters = {
-        "Name" = "John Smith"
-      }
-    }
-  }
+  # TODO: create runbook
 }

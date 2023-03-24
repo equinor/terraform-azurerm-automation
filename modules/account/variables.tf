@@ -1,4 +1,4 @@
-variable "account_name" {
+variable "name" {
   description = "The name of this Automation account."
   type        = string
 }
