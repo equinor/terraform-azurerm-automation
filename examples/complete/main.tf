@@ -20,7 +20,7 @@ module "log_analytics" {
 }
 
 module "automation" {
-  # source = "github.com/equinor/terraform-azurerm-automation/?ref=v0.0.0"
+  # source = "github.com/equinor/terraform-azurerm-automation?ref=v0.0.0"
   source = "../.."
 
   account_name               = "aa-${random_id.example.hex}"
