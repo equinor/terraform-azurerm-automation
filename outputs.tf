@@ -18,26 +18,18 @@ output "identity_tenant_id" {
   value       = try(azurerm_automation_account.this.identity[0].tenant_id, null)
 }
 
-output "job_schedule_ids" {
-  description = "A map of job schedule IDs for this Automation account."
-
-  value = {
-    for k, v in azurerm_automation_job_schedule.this : k => v.id
-  }
-}
-
-output "runbook_ids" {
-  description = "A map of runbook IDs for this Automation account."
-
-  value = {
-    for k, v in azurerm_automation_runbook.this : k => v.id
-  }
-}
-
 output "schedule_ids" {
   description = "A map of schedule IDs for this Automation account."
 
   value = {
     for k, v in azurerm_automation_schedule.this : k => v.id
+  }
+}
+
+output "schedule_names" {
+  description = "A map of schedule names for this Automation account."
+
+  value = {
+    for k, v in azurerm_automation_schedule.this : k => v.name
   }
 }
