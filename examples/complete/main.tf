@@ -40,6 +40,7 @@ module "automation" {
       schedule_description = "A schedule which triggers the example runbook once per day."
       content              = data.local_file.example.content
       frequency            = "Day"
+      interval             = 1
 
       parameters = {
         "Name" = "John Smith"
