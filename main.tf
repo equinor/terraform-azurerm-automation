@@ -33,6 +33,10 @@ resource "azurerm_automation_runbook" "this" {
   tags = var.tags
 }
 
+resource "time_offset" "this" {
+  offset_days = 1
+}
+
 resource "azurerm_automation_schedule" "this" {
   for_each = var.job_schedules
 
@@ -40,12 +44,16 @@ resource "azurerm_automation_schedule" "this" {
   automation_account_name = azurerm_automation_account.this.name
   resource_group_name     = azurerm_automation_account.this.resource_group_name
   description             = each.value["schedule_description"]
-  frequency               = each.value["frequency"]
-  interval                = each.value["interval"]
-  start_time              = each.value["start_time"]
-  timezone                = each.value["timezone"]
-  week_days               = each.value["week_days"]
-  month_days              = each.value["month_days"]
+
+  frequency = each.value["frequency"]
+  interval  = each.value["interval"]
+
+  # By default, start schedule the next day at 03:00 UTC.
+  start_time = coalesce(each.value["start_time"], formatdate("YYYY-MM-DD'T'03:00:00Z", time_offset.this.rfc3339))
+  timezone   = coalesce(each.value["timezone"], "Etc/UTC")
+
+  week_days  = each.value["week_days"]
+  month_days = each.value["month_days"]
 }
 
 resource "azurerm_automation_job_schedule" "this" {

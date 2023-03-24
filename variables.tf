@@ -63,11 +63,11 @@ variable "job_schedules" {
     schedule_name        = string
     schedule_description = optional(string, "")
     frequency            = string
-    interval             = optional(string, null)
-    start_time           = optional(string, null)
-    timezone             = optional(string, "Etc/UTC")
-    week_days            = optional(list(string), null)
-    month_days           = optional(list(number), null)
+    interval             = optional(string)
+    start_time           = optional(string)
+    timezone             = optional(string)
+    week_days            = optional(list(string))
+    month_days           = optional(list(number))
 
     # Job schedule values
     parameters = optional(map(string), {})
