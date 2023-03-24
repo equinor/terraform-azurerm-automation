@@ -35,6 +35,8 @@ resource "azurerm_automation_runbook" "this" {
 
 resource "time_offset" "this" {
   offset_days = 1
+
+  # TODO: add triggers to update time offset.
 }
 
 resource "azurerm_automation_schedule" "this" {
