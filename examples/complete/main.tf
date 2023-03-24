@@ -36,11 +36,11 @@ module "automation" {
     "example" = {
       runbook_name         = "example-runbook"
       runbook_description  = "An example runbook which writes a given name to output."
+      runbook_content      = data.local_file.example.content
       schedule_name        = "daily-schedule"
       schedule_description = "A schedule which triggers the example runbook once per day."
-      content              = data.local_file.example.content
-      frequency            = "Day"
-      interval             = 1
+      schedule_frequency   = "Day"
+      schedule_interval    = 1
 
       parameters = {
         "Name" = "John Smith"

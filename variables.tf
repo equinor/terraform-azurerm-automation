@@ -51,25 +51,22 @@ variable "job_schedules" {
   description = "A list of scheduled jobs (runbooks) to create for this Automation account."
 
   type = map(object({
-    # Runbook values
-    runbook_name        = string
-    runbook_description = optional(string, "")
-    runbook_type        = optional(string, "PowerShell")
-    content             = string
-    log_verbose         = optional(bool, false)
-    log_progress        = optional(bool, false)
+    runbook_name         = string
+    runbook_description  = optional(string, "")
+    runbook_type         = optional(string, "PowerShell")
+    runbook_content      = string
+    runbook_log_verbose  = optional(bool, false)
+    runbook_log_progress = optional(bool, false)
 
-    # Schedule values
     schedule_name        = string
     schedule_description = optional(string, "")
-    frequency            = string
-    interval             = optional(string)
-    start_time           = optional(string)
-    timezone             = optional(string)
-    week_days            = optional(list(string))
-    month_days           = optional(list(number))
+    schedule_frequency   = string
+    schedule_interval    = optional(string)
+    schedule_start_time  = optional(string)
+    schedule_timezone    = optional(string)
+    schedule_week_days   = optional(list(string))
+    schedule_month_days  = optional(list(number))
 
-    # Job schedule values
     parameters = optional(map(string), {})
   }))
 
