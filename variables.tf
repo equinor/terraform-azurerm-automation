@@ -48,7 +48,7 @@ variable "identity" {
 }
 
 variable "job_schedules" {
-  description = "A list of runbooks to create for this Automation account."
+  description = "A list of scheduled jobs (runbooks) to create for this Automation account."
 
   type = map(object({
     # Runbook values
