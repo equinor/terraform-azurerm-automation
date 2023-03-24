@@ -20,15 +20,15 @@ resource "azurerm_automation_account" "this" {
 resource "azurerm_automation_runbook" "this" {
   for_each = var.job_schedules
 
-  name                    = each.value["runbook_name"]
+  name                    = each.value["name"]
   automation_account_name = azurerm_automation_account.this.name
   resource_group_name     = azurerm_automation_account.this.resource_group_name
   location                = azurerm_automation_account.this.location
-  description             = each.value["runbook_description"]
+  description             = each.value["description"]
   runbook_type            = each.value["runbook_type"]
-  content                 = each.value["runbook_content"]
-  log_verbose             = each.value["runbook_log_verbose"]
-  log_progress            = each.value["runbook_log_progress"]
+  content                 = each.value["content"]
+  log_verbose             = each.value["log_verbose"]
+  log_progress            = each.value["log_progress"]
 
   tags = var.tags
 }

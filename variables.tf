@@ -47,16 +47,16 @@ variable "identity" {
   default = null
 }
 
-variable "job_schedules" {
-  description = "A list of scheduled jobs (runbooks) to create for this Automation account."
+variable "runbooks" {
+  description = "A map of runbooks to create for this Automation account."
 
   type = map(object({
-    runbook_name         = string
-    runbook_description  = optional(string, "")
-    runbook_type         = optional(string, "PowerShell")
-    runbook_content      = string
-    runbook_log_verbose  = optional(bool, false)
-    runbook_log_progress = optional(bool, false)
+    name         = string
+    description  = optional(string, "")
+    runbook_type = optional(string, "PowerShell")
+    content      = string
+    log_verbose  = optional(bool, false)
+    log_progress = optional(bool, false)
 
     schedule_name        = string
     schedule_description = optional(string, "")
