@@ -17,11 +17,7 @@ resource "azurerm_automation_account" "this" {
   }
 }
 
-resource "time_offset" "this" {
-  offset_days = 1
 
-  # TODO: add triggers to update time offset.
-}
 
 resource "azurerm_automation_schedule" "this" {
   for_each = var.schedules
@@ -36,9 +32,8 @@ resource "azurerm_automation_schedule" "this" {
   week_days  = each.value["week_days"]
   month_days = each.value["month_days"]
 
-  # By default, start schedule the next day at 03:00 UTC.
-  start_time = coalesce(each.value["start_time"], formatdate("YYYY-MM-DD'T'03:00:00Z", time_offset.this.rfc3339))
-  timezone   = coalesce(each.value["timezone"], "Etc/UTC")
+  start_time = each.value["start_time"]
+  timezone   = each.value["timezone"]
 }
 
 resource "azurerm_monitor_diagnostic_setting" "this" {

@@ -58,7 +58,7 @@ variable "schedules" {
     week_days   = optional(list(string), null)
     month_days  = optional(list(number), null)
     start_time  = optional(string)
-    timezone    = optional(string)
+    timezone    = optional(string, "Etc/UTC")
   }))
 
   default = {}
