@@ -19,6 +19,10 @@ module "log_analytics" {
   location            = azurerm_resource_group.example.location
 }
 
+resource "time_offset" "this" {
+  offset_days = 1
+}
+
 module "automation" {
   # source = "github.com/equinor/terraform-azurerm-automation?ref=v0.0.0"
   source = "../.."
@@ -33,6 +37,8 @@ module "automation" {
       name        = "daily-schedule"
       description = "An example schedule that runs daily."
       frequency   = "Day"
+      start_time  = formatdate("YYYY-MM-DD'T'03:00:00Z", time_offset.this.rfc3339) # Start schedule the next day at 03:00 UTC.
+      time_zone   = "Etc/UTC"
     }
   }
 }
