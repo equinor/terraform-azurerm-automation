@@ -1,7 +1,7 @@
 locals {
   hybrid_runbook_workers = merge([
     for worker_group_key, worker_group_value in var.hybrid_runbook_worker_groups : {
-      for worker_key, worker_value in worker_group_value["hybrid_runbook_workers"] : worker_key => {
+      for worker_key, worker_value in worker_group_value["hybrid_runbook_workers"] : "${worker_group_key}_${worker_key}" => {
         worker_group_name = worker_group_value["name"]
         vm_resource_id    = worker_value["vm_resource_id"]
       } if length(keys(worker_group_value["hybrid_runbook_workers"])) > 0
