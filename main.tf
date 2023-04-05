@@ -1,3 +1,15 @@
+locals {
+  hybrid_runbook_workers = merge([
+    for group_k, group_v in var.hybrid_runbook_worker_groups : {
+      for worker_k, worker_v in group_v["hybrid_runbook_workers"] : "${group_k}_${worker_k}" => {
+        worker_group_name = group_v["name"]
+        worker_id         = worker_v["worker_id"]
+        vm_resource_id    = worker_v["vm_resource_id"]
+      }
+    }
+  ]...)
+}
+
 resource "azurerm_automation_account" "this" {
   name                = var.account_name
   resource_group_name = var.resource_group_name
@@ -17,7 +29,23 @@ resource "azurerm_automation_account" "this" {
   }
 }
 
+resource "azurerm_automation_hybrid_runbook_worker_group" "this" {
+  for_each = var.hybrid_runbook_worker_groups
 
+  name                    = each.value["name"]
+  automation_account_name = azurerm_automation_account.this.name
+  resource_group_name     = azurerm_automation_account.this.resource_group_name
+}
+
+resource "azurerm_automation_hybrid_runbook_worker" "this" {
+  for_each = local.hybrid_runbook_workers
+
+  automation_account_name = azurerm_automation_account.this.name
+  resource_group_name     = azurerm_automation_account.this.resource_group_name
+  worker_group_name       = each.value["worker_group_name"]
+  worker_id               = each.value["worker_id"]
+  vm_resource_id          = each.value["vm_resource_id"]
+}
 
 resource "azurerm_automation_schedule" "this" {
   for_each = var.schedules

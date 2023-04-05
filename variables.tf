@@ -47,6 +47,22 @@ variable "identity" {
   default = null
 }
 
+variable "hybrid_runbook_worker_groups" {
+  description = "A map of hybrid runbook worker groups to create for this Automation account."
+
+  # The following type construct works because a VM can only be a member of a single group.
+  type = map(object({
+    name = string
+
+    hybrid_runbook_workers = map(object({
+      worker_id      = string # Consider setting this value using the "random_uuid" resource instead
+      vm_resource_id = string
+    }))
+  }))
+
+  default = {}
+}
+
 variable "schedules" {
   description = "A map of schedules to create for this Automation account."
 
