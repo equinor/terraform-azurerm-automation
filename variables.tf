@@ -54,10 +54,9 @@ variable "hybrid_runbook_worker_groups" {
   type = map(object({
     name = string
 
-    hybrid_runbook_workers = map(object({
-      worker_id      = string # Consider setting this value using the "random_uuid" resource instead
+    hybrid_runbook_workers = optional(map(object({
       vm_resource_id = string
-    }))
+    })), {})
   }))
 
   default = {}
