@@ -1,3 +1,10 @@
+locals {
+  # If system_assigned_identity_enabled is true, value is "SystemAssigned".
+  # If identity_ids is non-empty, value is "UserAssigned".
+  # If system_assigned_identity_enabled is true and identity_ids is non-empty, value is "SystemAssigned, UserAssigned".
+  identity_type = join(", ", compact([var.system_assigned_identity_enabled ? "SystemAssigned" : "", length(var.identity_ids) > 0 ? "UserAssigned" : ""]))
+}
+
 resource "azurerm_automation_account" "this" {
   name                = var.account_name
   resource_group_name = var.resource_group_name
@@ -8,16 +15,14 @@ resource "azurerm_automation_account" "this" {
   public_network_access_enabled = var.public_network_access_enabled
 
   dynamic "identity" {
-    for_each = var.identity != null ? [var.identity] : []
+    for_each = local.identity_type != "" ? [1] : []
 
     content {
-      type         = identity.value["type"]
-      identity_ids = identity.value["identity_ids"]
+      type         = local.identity_type
+      identity_ids = var.identity_ids
     }
   }
 }
-
-
 
 resource "azurerm_automation_schedule" "this" {
   for_each = var.schedules
