@@ -24,23 +24,6 @@ resource "azurerm_automation_account" "this" {
   }
 }
 
-resource "azurerm_automation_schedule" "this" {
-  for_each = var.schedules
-
-  name                    = each.value["name"]
-  automation_account_name = azurerm_automation_account.this.name
-  resource_group_name     = azurerm_automation_account.this.resource_group_name
-  description             = each.value["description"]
-
-  frequency  = each.value["frequency"]
-  interval   = each.value["interval"]
-  week_days  = each.value["week_days"]
-  month_days = each.value["month_days"]
-
-  start_time = each.value["start_time"]
-  timezone   = each.value["timezone"]
-}
-
 resource "azurerm_monitor_diagnostic_setting" "this" {
   name                       = var.diagnostic_setting_name
   target_resource_id         = azurerm_automation_account.this.id
