@@ -31,16 +31,16 @@ module "automation" {
   resource_group_name        = azurerm_resource_group.example.name
   location                   = azurerm_resource_group.example.location
   log_analytics_workspace_id = module.log_analytics.workspace_id
+}
 
-  schedules = {
-    "example" = {
-      name        = "daily-schedule"
-      description = "An example schedule that runs daily."
-      frequency   = "Day"
-      start_time  = formatdate("YYYY-MM-DD'T'03:00:00Z", time_offset.this.rfc3339) # Start schedule the next day at 03:00 UTC.
-      time_zone   = "Etc/UTC"
-    }
-  }
+resource "azurerm_automation_schedule" "example" {
+  name                    = "daily-schedule"
+  automation_account_name = module.automation.account_name
+  resource_group_name     = azurerm_resource_group.example.name
+  description             = "An example schedule that runs daily."
+  frequency               = "Day"
+  start_time              = formatdate("YYYY-MM-DD'T'03:00:00Z", time_offset.this.rfc3339) # Start schedule the next day at 03:00 UTC.
+  timezone                = "Etc/UTC"
 }
 
 data "local_file" "example" {
@@ -60,7 +60,7 @@ module "runbook" {
 
   job_schedules = {
     "example" = {
-      schedule_name = module.automation.schedule_names["example"]
+      schedule_name = azurerm_automation_schedule.example.name
       parameters    = { "Name" = "John Smith" }
     }
   }
