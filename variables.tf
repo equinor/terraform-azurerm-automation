@@ -48,23 +48,6 @@ variable "identity_ids" {
   default     = []
 }
 
-variable "schedules" {
-  description = "A map of schedules to create for this Automation account."
-
-  type = map(object({
-    name        = string
-    description = optional(string, "")
-    frequency   = string
-    interval    = optional(string)
-    week_days   = optional(list(string), null)
-    month_days  = optional(list(number), null)
-    start_time  = optional(string)
-    timezone    = optional(string, "Etc/UTC")
-  }))
-
-  default = {}
-}
-
 variable "diagnostic_setting_name" {
   description = "The name of this diagnostic setting."
   type        = string
