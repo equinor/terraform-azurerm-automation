@@ -24,6 +24,11 @@ resource "azurerm_automation_account" "this" {
   }
 }
 
+data "azurerm_automation_account" "this" {
+  name                = azurerm_automation_account.this
+  resource_group_name = azurerm_automation_account.this.resource_group_name
+}
+
 resource "azurerm_automation_schedule" "this" {
   for_each = var.schedules
 
