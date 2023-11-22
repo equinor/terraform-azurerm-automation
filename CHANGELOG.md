@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.0.1](https://github.com/equinor/terraform-azurerm-automation/compare/v3.0.0...v3.0.1) (2023-11-22)
+
+
+### Bug Fixes
+
+* invalid value for `data.azurerm_automation_account.this.name` ([#19](https://github.com/equinor/terraform-azurerm-automation/issues/19)) ([a841dc5](https://github.com/equinor/terraform-azurerm-automation/commit/a841dc5ddcb23e46930d4958dcd8e0e1cb08f379))
+
 ## [3.0.0](https://github.com/equinor/terraform-azurerm-automation/compare/v2.0.0...v3.0.0) (2023-11-21)
 
 
