@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.1.0](https://github.com/equinor/terraform-azurerm-automation/compare/v3.0.1...v3.1.0) (2023-11-22)
+
+
+### Features
+
+* enable `JobLogs` and `JobStreams` log categories ([#21](https://github.com/equinor/terraform-azurerm-automation/issues/21)) ([b0e2719](https://github.com/equinor/terraform-azurerm-automation/commit/b0e271991c30a20c86895901530f08db3861e129))
+
 ## [3.0.1](https://github.com/equinor/terraform-azurerm-automation/compare/v3.0.0...v3.0.1) (2023-11-22)
 
 
