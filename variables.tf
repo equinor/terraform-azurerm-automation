@@ -57,7 +57,7 @@ variable "diagnostic_setting_name" {
 variable "diagnostic_setting_enabled_log_categories" {
   description = "A list of log categories to be enabled for this diagnostic setting."
   type        = list(string)
-  default     = ["AuditEvent"]
+  default     = ["AuditEvent", "JobLogs", "JobStreams"]
 }
 
 variable "tags" {
