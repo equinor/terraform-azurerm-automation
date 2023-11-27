@@ -22,6 +22,8 @@ resource "azurerm_automation_account" "this" {
       identity_ids = var.identity_ids
     }
   }
+
+  tags = var.tags
 }
 
 data "azurerm_automation_account" "this" {
