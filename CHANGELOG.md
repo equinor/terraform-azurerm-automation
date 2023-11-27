@@ -1,5 +1,13 @@
 # Changelog
 
+## [3.1.1](https://github.com/equinor/terraform-azurerm-automation/compare/v3.1.0...v3.1.1) (2023-11-27)
+
+
+### Bug Fixes
+
+* set Automation account tags ([#27](https://github.com/equinor/terraform-azurerm-automation/issues/27)) ([67c3119](https://github.com/equinor/terraform-azurerm-automation/commit/67c31191b617aabe176e0e28d7a143ad9d7e60fb))
+* set tags ([67c3119](https://github.com/equinor/terraform-azurerm-automation/commit/67c31191b617aabe176e0e28d7a143ad9d7e60fb))
+
 ## [3.1.0](https://github.com/equinor/terraform-azurerm-automation/compare/v3.0.1...v3.1.0) (2023-11-22)
 
 
