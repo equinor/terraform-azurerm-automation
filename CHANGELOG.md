@@ -1,5 +1,12 @@
 # Changelog
 
+## [3.2.0](https://github.com/equinor/terraform-azurerm-automation/compare/v3.1.1...v3.2.0) (2023-12-08)
+
+
+### Features
+
+* create runbook ([#33](https://github.com/equinor/terraform-azurerm-automation/issues/33)) ([419fb9f](https://github.com/equinor/terraform-azurerm-automation/commit/419fb9f95085e8fd8afd98b6fb78d3948ad965d0))
+
 ## [3.1.1](https://github.com/equinor/terraform-azurerm-automation/compare/v3.1.0...v3.1.1) (2023-11-27)
 
 
