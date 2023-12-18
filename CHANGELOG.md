@@ -1,5 +1,16 @@
 # Changelog
 
+## [4.0.0](https://github.com/equinor/terraform-azurerm-automation/compare/v3.2.0...v4.0.0) (2023-12-18)
+
+
+### ⚠ BREAKING CHANGES
+
+* **runbook:** change type of variable `job_schedules` from `map(object)` to `list(object)`.
+
+### Code Refactoring
+
+* **runbook:** change variable `job_schedules` type ([#36](https://github.com/equinor/terraform-azurerm-automation/issues/36)) ([8c8b5aa](https://github.com/equinor/terraform-azurerm-automation/commit/8c8b5aa3d0723e6b24d13c106edb5dd12aef2902))
+
 ## [3.2.0](https://github.com/equinor/terraform-azurerm-automation/compare/v3.1.1...v3.2.0) (2023-12-08)
 
 
