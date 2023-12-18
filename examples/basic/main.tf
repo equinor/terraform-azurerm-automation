@@ -42,10 +42,8 @@ module "runbook" {
   location            = var.location
   content             = file("${path.module}/Write-Hello.ps1")
 
-  job_schedules = {
-    "daily" = {
-      schedule_name = azurerm_automation_schedule.daily.name
-      parameters    = { "Subject" = "John Smith" }
-    }
-  }
+  job_schedules = [{
+    schedule_name = azurerm_automation_schedule.daily.name
+    parameters    = { Subject = "John Smith" }
+  }]
 }
