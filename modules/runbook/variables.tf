@@ -48,14 +48,14 @@ variable "log_progress" {
 }
 
 variable "job_schedules" {
-  description = "A map of job schedules to create for this Automation runbook."
+  description = "A list of job schedules to create for this Automation runbook."
 
-  type = map(object({
+  type = list(object({
     schedule_name = string
     parameters    = optional(map(string), {})
   }))
 
-  default = {}
+  default = []
 }
 
 variable "tags" {
