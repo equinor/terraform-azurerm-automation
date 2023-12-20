@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.1](https://github.com/equinor/terraform-azurerm-automation/compare/v4.0.0...v4.0.1) (2023-12-20)
+
+
+### Bug Fixes
+
+* remove diagnostic setting retention policies ([#38](https://github.com/equinor/terraform-azurerm-automation/issues/38)) ([786581e](https://github.com/equinor/terraform-azurerm-automation/commit/786581efe0864200941e46eeeea8d556fb677e78))
+
 ## [4.0.0](https://github.com/equinor/terraform-azurerm-automation/compare/v3.2.0...v4.0.0) (2023-12-18)
 
 
