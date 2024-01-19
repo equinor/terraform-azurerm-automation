@@ -26,11 +26,6 @@ resource "azurerm_automation_account" "this" {
   tags = var.tags
 }
 
-data "azurerm_automation_account" "this" {
-  name                = azurerm_automation_account.this.name
-  resource_group_name = azurerm_automation_account.this.resource_group_name
-}
-
 resource "azurerm_monitor_diagnostic_setting" "this" {
   name                       = var.diagnostic_setting_name
   target_resource_id         = azurerm_automation_account.this.id
