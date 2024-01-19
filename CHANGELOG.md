@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.0.2](https://github.com/equinor/terraform-azurerm-automation/compare/v4.0.1...v4.0.2) (2024-01-19)
+
+
+### Bug Fixes
+
+* all changes to account trigger replace of dependents ([#40](https://github.com/equinor/terraform-azurerm-automation/issues/40)) ([be9d9e5](https://github.com/equinor/terraform-azurerm-automation/commit/be9d9e52101371c55fea29c81b228d659e864ce3))
+
 ## [4.0.1](https://github.com/equinor/terraform-azurerm-automation/compare/v4.0.0...v4.0.1) (2023-12-20)
 
 
