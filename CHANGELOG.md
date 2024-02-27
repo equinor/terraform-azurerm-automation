@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.0](https://github.com/equinor/terraform-azurerm-automation/compare/v4.0.2...v4.1.0) (2024-02-27)
+
+
+### Features
+
+* disable metrics by default ([#46](https://github.com/equinor/terraform-azurerm-automation/issues/46)) ([5c4c5fd](https://github.com/equinor/terraform-azurerm-automation/commit/5c4c5fdcbf22314c413d24db1b84d7372fbca6d4))
+
 ## [4.0.2](https://github.com/equinor/terraform-azurerm-automation/compare/v4.0.1...v4.0.2) (2024-01-19)
 
 
