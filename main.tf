@@ -50,5 +50,4 @@ resource "azurerm_monitor_diagnostic_setting" "this" {
       enabled  = contains(var.diagnostic_setting_enabled_metric_categories, metric.value)
     }
   }
-
 }
