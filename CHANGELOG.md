@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.1](https://github.com/equinor/terraform-azurerm-automation/compare/v4.1.0...v4.1.1) (2024-08-26)
+
+
+### Miscellaneous Chores
+
+* update variable descriptions and add features list ([#53](https://github.com/equinor/terraform-azurerm-automation/issues/53)) ([9ece204](https://github.com/equinor/terraform-azurerm-automation/commit/9ece204f122b9a4550ce649827dc5e72f8051c4a))
+
 ## [4.1.0](https://github.com/equinor/terraform-azurerm-automation/compare/v4.0.2...v4.1.0) (2024-02-27)
 
 
