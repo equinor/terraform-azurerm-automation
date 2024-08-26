@@ -9,7 +9,7 @@ Terraform module which creates Azure Automation account.
 ## Features
 
 - Microsoft Entra authentication enforced by default.
-- Audit logs sent to give Log Analytics workspace by default.
+- Audit logs sent to given Log Analytics workspace by default.
 
 ## Development
 
