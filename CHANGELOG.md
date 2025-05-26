@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.2](https://github.com/equinor/terraform-azurerm-automation/compare/v4.1.1...v4.1.2) (2025-05-26)
+
+
+### Documentation
+
+* update README ([5fbd9e7](https://github.com/equinor/terraform-azurerm-automation/commit/5fbd9e760128461c9a5d691fdb5dcf686b7e323f))
+
 ## [4.1.1](https://github.com/equinor/terraform-azurerm-automation/compare/v4.1.0...v4.1.1) (2024-08-26)
 
 
