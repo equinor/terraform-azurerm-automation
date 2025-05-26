@@ -29,7 +29,7 @@ module "automation" {
   source  = "equinor/automation/azurerm"
   version = "~> 4.1"
 
-  account_name               = "example-account"
+  account_name               = "example-automation"
   resource_group_name        = azurerm_resource_group.example.name
   location                   = azurerm_resource_group.example.location
   log_analytics_workspace_id = module.log_analytics.workspace_id
