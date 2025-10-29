@@ -1,12 +1,5 @@
 # Terraform module for Azure Automation
 
-[![GitHub Release](https://img.shields.io/github/v/release/equinor/terraform-azurerm-automation)](https://github.com/equinor/terraform-azurerm-automation/releases/latest)
-[![Terraform Module Downloads](https://img.shields.io/terraform/module/dt/equinor/automation/azurerm)](https://registry.terraform.io/modules/equinor/automation/azurerm/latest)
-[![GitHub contributors](https://img.shields.io/github/contributors/equinor/terraform-azurerm-automation)](https://github.com/equinor/terraform-azurerm-automation/graphs/contributors)
-[![GitHub Issues](https://img.shields.io/github/issues/equinor/terraform-azurerm-automation)](https://github.com/equinor/terraform-azurerm-automation/issues)
-[![GitHub Pull requests](https://img.shields.io/github/issues-pr/equinor/terraform-azurerm-automation)](https://github.com/equinor/terraform-azurerm-automation/pulls)
-[![GitHub License](https://img.shields.io/github/license/equinor/terraform-azurerm-automation)](https://github.com/equinor/terraform-azurerm-automation/blob/main/LICENSE)
-
 Terraform module which creates Azure Automation resources.
 
 ## Features
