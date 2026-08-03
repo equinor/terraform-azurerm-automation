@@ -2,6 +2,11 @@
 
 Terraform module which creates Azure Automation resources.
 
+## Requirements
+
+- Terraform >= 1.15.0
+- AzureRM >= 5.0.0
+
 ## Features
 
 - Basic tier Automation account created in given resource group by default.
