@@ -2,11 +2,6 @@
 
 Terraform module which creates Azure Automation resources.
 
-## Requirements
-
-- Terraform >= 1.3.0, < 2.0.0
-- AzureRM >= 4.35.0, < 6.0.0
-
 ## Features
 
 - Basic tier Automation account created in given resource group by default.
@@ -15,6 +10,8 @@ Terraform module which creates Azure Automation resources.
 
 ## Prerequisites
 
+- Terraform >= 1.3.0, < 2.0.0
+- AzureRM >= 4.35.0, < 6.0.0
 - Azure role `Contributor` at the resource group scope.
 - Azure role `Log Analytics Contributor` at the Log Analytics workspace scope.
 
