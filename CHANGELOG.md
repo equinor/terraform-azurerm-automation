@@ -1,5 +1,12 @@
 # Changelog
 
+## [4.1.3](https://github.com/equinor/terraform-azurerm-automation/compare/v4.1.2...v4.1.3) (2026-08-04)
+
+
+### Code Refactoring
+
+* update module to accommodate azurerm 5.0.0 ([#57](https://github.com/equinor/terraform-azurerm-automation/issues/57)) ([08d3cbd](https://github.com/equinor/terraform-azurerm-automation/commit/08d3cbd7b6dcf5995351d9089145e794eb4df9dd))
+
 ## [4.1.2](https://github.com/equinor/terraform-azurerm-automation/compare/v4.1.1...v4.1.2) (2025-05-26)
 
 
